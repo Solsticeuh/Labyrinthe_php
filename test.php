@@ -4,15 +4,21 @@
     $sqlite = new SQLite3($bdd_fichier);
 
     //trouver/stocker le départ
-    $requetedepart = 'SELECT couloir FROM couloirs WHERE type = "depart"';
-    $depart = $sqlite->query($requetedepart);
+    $requetedepart = 'SELECT couloir.id FROM couloir WHERE type = "depart"';
+    $posd = $sqlite->prepare($requetedepart);
+    $execdep = $posd->execute();
+    $posdint = $execdep -> fetchArray();
+    $depart = $posdint[0];
 
     //trouver/stocker la fin
-    $requetefin = 'SELECT couloir FROM couloirs WHERE type = "sortie"';
-    $fin = $sqlite->query( $requetefin);
+    $requetefin = 'SELECT id FROM couloir WHERE type = "sortie"';
+    $posf = $sqlite->prepare($requetefin);
+    $execfin = $posf->execute();
+    $posfint = $execfin->fetchArray();
+    $fin = $posfint[0];
+    
 
     //stocker position de départ
-    $preparefin = $sqlite -> prepare($requetedepart);
     $position = $depart;
 
     // /!\ boucle while du jeu à décommenter quand nécessaire
@@ -21,17 +27,20 @@
     //}
     
     // trouver les possibilités de déplacement à partir de la position actuelle
-    $requeteposs = 'SELECT couloirs1,couloir2 FROM passage WHERE couloirs1 = :position OR couloirs2 = :position';
-    $sql = $sqlite -> prepare($requeteposs);
-    $sql -> bindValue(':position', $position, SQLITE3_INTEGER);
+    $requeteposs = 'SELECT couloir1,couloir2 FROM passage WHERE couloir1 = :position OR couloir2 = :position';
+    $prepareposs = $sqlite -> prepare($requeteposs);
+    $prepareposs -> bindValue(':position', $position, SQLITE3_INTEGER);
+    $resultposs = $prepareposs->execute();
     $poss = array();
 
-        //crée un array avec les positions possible à partir de la position actuelle
-    while($result = $returned_set->fetchArray()) {
-        if($result!=$posoition){
-            array_push($poss, $result);
-        }
+    //crée un array avec les positions possible à partir de la position actuelle
+    echo "<ul>";
+    while($result = $resultposs->fetchArray()){
+        $autre = ($result['couloir1'] == $position) ? "couloir1['id']":"couloir2['id']";
+        array_push($poss, $autre);
+		echo '<li>'.$poss[0].'</li>';
     }
+    echo "</ul>";
 
     //Création de la page html avec les résultats qu'on a get depuis le début du code
     echo "<!DOCTYPE html>\n";		//On demande un saut de ligne avec \n, seulement avec " et pas '
@@ -41,7 +50,7 @@
     echo "<body>\n";
 	    echo "<h1>Liste des couloirs</h1>\n";
 	    echo "<ul>";
-            echo''.$position.''.$fin.''.$poss;
+            echo "$depart, $fin";
         echo "</ul>";
 	echo "</body>\n";
 	echo "</html>\n";
