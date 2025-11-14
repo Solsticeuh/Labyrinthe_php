@@ -11,11 +11,11 @@
 	$sqlite = new SQLite3($bdd_fichier);		//On ouvre le fichier de la base de données
 	
 	/* Instruction SQL pour récupérer la liste des pieces adjacentes à la pièce paramétrée */
-	$sql = 'SELECT couloir.id, couloir.type FROM couloir';
+	$sql = 'SELECT couloir.id, couloir.type FROM couloir WHERE type = :type';
 	
 	
 	/* Préparation de la requete et de ses paramètres */
-	$requete = $sqlite -> prepare($sql);
+	$requete = $sqlite -> prepare(query: $sql);
 	echo $sqlite -> lastErrorMsg();
 	//die();
 	$requete -> bindValue(':type', $type, SQLITE3_TEXT);
