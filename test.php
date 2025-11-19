@@ -36,7 +36,7 @@
     //crée un array avec les positions possible à partir de la position actuelle
     echo "<ul>";
     while($result = $resultposs->fetchArray()){
-        $autre = ($result['couloir1'] == $position) ? "couloir1['id']":"couloir2['id']";
+        $autre = ($result['couloir1'] == $position) ? $result['couloir2']:$result['couloir1'];
         array_push($poss, $autre);
 		echo '<li>'.$poss[0].'</li>';
     }
