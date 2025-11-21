@@ -4,13 +4,13 @@
     
     $sqlite = new SQLite3($bdd_fichier);
 
-    include('depart.php');
+    include('fonctions\depart.php');
 
-    include('fin.php');
+    include('fonctions\fin.php');
 
-    include('Rechercher_couloirs.php');
+    include('fonctions\Rechercher_couloirs.php');
 
-    
+
 
     //Création de la page html avec les résultats qu'on a get depuis le début du code
     echo "<!DOCTYPE html>\n";		//On demande un saut de ligne avec \n, seulement avec " et pas '
@@ -22,7 +22,7 @@
             echo "<ul>";
             echo "$depart, $fin";
     echo "</ul>";
-    echo "<a href='test.php?position=13'>RESET</a>";
+    echo "<a href='index.php?position=13'>RESET</a>";
     echo "</body>\n";
     echo "</html>\n";
 

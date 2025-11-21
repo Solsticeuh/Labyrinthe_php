@@ -24,7 +24,7 @@
     while($result = $resultposs->fetchArray()){
         $autre = ($result['couloir1'] == $position) ? $result['couloir2']:$result['couloir1'];
         array_push($poss, $autre);
-        echo "<li><a href='test.php?position=$poss[$nbcouloir]'>$poss[$nbcouloir]</a></li>";
+        echo "<li><a href='index.php?position=$poss[$nbcouloir]'>$poss[$nbcouloir]</a></li>";
         $nbcouloir+=1;
     }
     echo "</ul>";
