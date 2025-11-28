@@ -4,9 +4,8 @@
 	$bdd_fichier = 'labyrinthe.db';
     $sqlite = new SQLite3($bdd_fichier);
 
-    //ouvre une session pour l'état des grilles, la position précédente.
+    //ouvre une session pour l'état des grilles, la position précédente, et reset si jamais on se trouve au tout début de la partie.
     session_start();
-
 
     //Récupère le début et la fin du labyrinthe
     include('fonctions\depart.php');
