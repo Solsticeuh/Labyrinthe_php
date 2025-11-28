@@ -1,10 +1,6 @@
 <?php
 
-    if(in_array($_GET['position'],$cles))
-    {
-        $key=1;
-    } 
-
+    //Affiche les possibilités de déplacement.
     echo 'possibilités: ';
     foreach($possibilités as $poss)
     {
@@ -18,5 +14,5 @@
             echo "<li><a href='index.php?position=$poss&key=$key'>$poss</a></li>";
         }
     }
-    
+
 ?>

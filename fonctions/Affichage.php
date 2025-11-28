@@ -14,7 +14,8 @@
         echo "</ul>";
 
         echo "<a href='index.php'>RESET</a>";
-
+        echo "<p> </p>";
+        echo 'precedent:'.$_SESSION['prec'].' ';
         echo "</body>\n";
 
     echo "</html>\n";

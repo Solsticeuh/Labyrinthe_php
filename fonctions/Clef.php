@@ -25,4 +25,12 @@
         $nbclef+=1;
     }
     echo '</ul>';
+    
+    //Récupération d'une seule clé
+    if(isset($_GET['position'])){
+        if(in_array($_GET['position'],$cles))
+        {
+            $key=1;
+        } 
+    }
 ?>
