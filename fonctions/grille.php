@@ -27,9 +27,4 @@
             }
         }
     }
-
-    //aficher ouvert ou pas.
-    for($o=0;$o<count($_SESSION['gripen']);$o++){
-        Print_r($_SESSION['gripen'][$o]);
-    }
 ?> 

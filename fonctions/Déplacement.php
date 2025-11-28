@@ -2,17 +2,19 @@
 
     //Affiche les possibilités de déplacement.
     echo 'possibilités: ';
-    foreach($possibilités as $poss)
+    for($poss=0;$poss<count($possibilités);$poss++)
     {
-        if(!in_array($position,$grille) || !in_array($poss,$grille))
+        if(!in_array($position,$grille) || !in_array($possibilités[$poss],$grille))
         {
-            echo "<li><a href='index.php?position=$poss&key=$key'>$poss</a></li>";
+            echo "<li><a href='index.php?position=$possibilités[$poss]&direction=$directionarr[$poss]&key=$key'>chemin: $possibilités[$poss] direction: $directionarr[$poss] .</a></li>";
         }
         
-        if(in_array($position,$grille) && in_array($poss,$grille) && ($key == 1 || $_SESSION['gripen'][$posgrille] == 1))
+        if(in_array($position,$grille) && in_array($possibilités[$poss],$grille) && ($key == 1 || $_SESSION['gripen'][$posgrille] == 1))
         {
-            echo "<li><a href='index.php?position=$poss&key=$key'>$poss</a></li>";
+            echo "<li><a href='index.php?position=$possibilités[$poss]&direction=$directionarr[$poss]&key=$key'>chemin: $possibilités[$poss], direction: $directionarr[$poss] .</a></li>";
         }
     }
 
+    $dirjoueurarr = ['N','E','S','O'];
+    
 ?>

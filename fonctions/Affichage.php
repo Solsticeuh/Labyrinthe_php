@@ -8,14 +8,13 @@
 
         echo "<body>\n";
     
-        echo "<h1>Départ/Arrivée</h1>\n";
+        echo "<h5>Départ/Arrivée</h5>\n";
         echo "<ul>";
             echo "$depart, $fin";
         echo "</ul>";
 
         echo "<a href='index.php'>RESET</a>";
         echo "<p> </p>";
-        echo 'precedent:'.$_SESSION['prec'].' ';
         echo "</body>\n";
 
     echo "</html>\n";
