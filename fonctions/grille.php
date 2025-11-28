@@ -21,7 +21,8 @@
     for($i=0;$i<count($grille);$i=$i+2){
         if(isset($_GET['position'])){
             if($grille[$i]==$_GET['position'] && $grille[$i+1]==$_SESSION['prec'] || $grille[$i+1]==$_GET['position'] && $grille[$i]==$_SESSION['prec']){
-                $_SESSION['gripen'][round($i/2,0,PHP_ROUND_HALF_DOWN)] = 1;
+                $posgrille = round($i/2,0,PHP_ROUND_HALF_DOWN);
+                $_SESSION['gripen'][$posgrille] = 1;
                 $_GET['key']=0;
             }
         }
