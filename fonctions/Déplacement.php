@@ -9,7 +9,7 @@
             echo "<li><a href='index.php?position=$possibilités[$poss]&direction=$directionarr[$poss]&key=$key'>chemin: $possibilités[$poss] direction: $directionarr[$poss] .</a></li>";
         }
         
-        if(in_array($position,$grille) && in_array($possibilités[$poss],$grille) && ($key == 1 || $_SESSION['gripen'][$posgrille] == 1))
+        if(in_array($position,$grille) && in_array($possibilités[$poss],$grille) && ($_GET['key'] == 1 || $_SESSION['gripen'][$_SESSION['positgrille']] == 1))
         {
             echo "<li><a href='index.php?position=$possibilités[$poss]&direction=$directionarr[$poss]&key=$key'>chemin: $possibilités[$poss], direction: $directionarr[$poss] .</a></li>";
         }

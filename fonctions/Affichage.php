@@ -14,7 +14,7 @@
         echo "</ul>";
 
         echo "<a href='index.php'>RESET</a>";
-        echo "<p> </p>";
+        echo "<p>".$_SESSION['gripen'][0].$_SESSION['gripen'][1]."</p>";
         echo "</body>\n";
 
     echo "</html>\n";

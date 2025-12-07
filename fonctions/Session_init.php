@@ -11,11 +11,17 @@
             array_push($_SESSION['gripen'],0);
         }
     }
+
     if(isset($_GET['position'])){
         if(!isset($_SESSION['prec'])){
         
             $_SESSION['prec'] = $_GET['position'];
         }
         else{$_SESSION['prec']=$_GET['position'];}
+    }
+
+    if(!isset($_SESSION['positgrille']))
+    {
+        $_SESSION['positgrille'] = 0;
     }
 ?>
