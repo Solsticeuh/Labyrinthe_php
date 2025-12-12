@@ -3,7 +3,11 @@
     //ouvre la base de données.
 	$bdd_fichier = 'labyrinthe.db';
     $sqlite = new SQLite3($bdd_fichier);
-
+?>
+    <style>
+    <?php include('fonctions/Style.css'); ?>
+    </style>
+<?php
     //ouvre une session pour l'état des grilles, la position précédente, et reset si jamais on se trouve au tout début de la partie.
     session_start();
 
