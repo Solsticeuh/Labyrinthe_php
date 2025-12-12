@@ -7,14 +7,8 @@
         echo "</head>\n";
 
         echo "<body>\n";
-    
-        echo "<h5>Départ/Arrivée</h5>\n";
-        echo "<ul>";
-            echo "$depart, $fin";
-        echo "</ul>";
-
-        echo "<a href='index.php'>RESET</a>";
-        echo "<p>".$_SESSION['gripen'][0].$_SESSION['gripen'][1]."</p>";
+        echo "<br>";
+        echo "<a href='index.php?position=$depart'>RESET</a>";
         echo "</body>\n";
 
     echo "</html>\n";

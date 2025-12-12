@@ -16,15 +16,11 @@
 
     $cles = array();
     $nbclef = 0;
-
-    echo 'clef: ';
-    echo '<ul>';
+    
     while($result = $execclef -> fetchArray()){
         array_push($cles,$result[0]);
-        echo '<li>'.$cles[$nbclef].'</li>';
         $nbclef+=1;
     }
-    echo '</ul>';
     
     //Récupération d'une seule clé
     if(isset($_GET['position'])){

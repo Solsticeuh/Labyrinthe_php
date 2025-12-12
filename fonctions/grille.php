@@ -8,15 +8,11 @@
     //Mets les couloirs formant le passage de type grille dans un array.
     $grille = array();
     $nbgrille=0;
-    echo 'grilles:';
-    echo '<ul>';
     while($result = $execgrille -> fetchArray()){
         array_push($grille,$result['couloir1']);
         array_push($grille,$result['couloir2']);
-        echo '<li>'.$grille[$nbgrille].' , '.$grille[$nbgrille+1].'</li>';
         $nbgrille=$nbgrille+2;
     }
-    echo '</ul>';
 
     //Ouverture des couloirs définitive. (work in progress)
     for($i=0;$i<count($grille);$i=$i+2){
