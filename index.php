@@ -50,5 +50,6 @@
             include('fonctions/Session_init.php');
         }
     }
+    $_SESSION['fin_jeu'] = 0;
 
 ?>

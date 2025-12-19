@@ -10,6 +10,5 @@
         echo "<p>Ton score : <strong>{$_SESSION['score']}</strong></p>";
 
         echo "<a href='index.php?position=$depart'>RESET</a>";
-
     }
 ?>
