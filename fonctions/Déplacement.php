@@ -1,50 +1,43 @@
 <?php
+echo "<div class='container'>";
 
-    //Affiche les possibilités de déplacement.
-    for($poss=0;$poss<count($possibilités);$poss++)
-    {
-        echo "<div class = 'container'>";
-        echo "<item1></div>";
-        echo "<item3></div>";
-        echo "<item7></div>";
-        if(!in_array($position,$grille) || !in_array($possibilités[$poss],$grille))
-        {
-            switch($directionarr[$poss]){
-                case 'N':
-                    echo "<itemN><a href='index.php?position=$possibilités[$poss]&key=$key'>$directionarr[$poss]</a></div>";
-                    break;
-                case 'O':
-                    echo "<itemO><a href='index.php?position=$possibilités[$poss]&key=$key'>$directionarr[$poss]</a></div>";
-                    break;
-                case 'E':
-                    echo "<itemE><a href='index.php?position=$possibilités[$poss]&key=$key'>$directionarr[$poss]</a></div>";
-                    break;
-                case 'S':
-                    echo "<itemS><a href='index.php?position=$possibilités[$poss]&key=$key'>$directionarr[$poss]</a></div>";
-                    break;
-                    
-            }
-        }
-        
-        if(in_array($position,$grille) && in_array($possibilités[$poss],$grille) && ($_GET['key'] == 1 || $_SESSION['gripen'][$_SESSION['positgrille']] == 1))
-        {
-            switch($directionarr[$poss]){
-                case 'N':
-                    echo "<itemN><a href='index.php?position=$possibilités[$poss]&key=$key'>$directionarr[$poss]</a></div>";
-                    break;
-                case 'O':
-                    echo "<itemO><a href='index.php?position=$possibilités[$poss]&key=$key'>$directionarr[$poss]</a></div>";
-                    break;
-                case 'E':
-                    echo "<itemE><a href='index.php?position=$possibilités[$poss]&key=$key'>$directionarr[$poss]</a></div>";
-                    break;
-                case 'S':
-                    echo "<itemS><a href='index.php?position=$possibilités[$poss]&key=$key'>$directionarr[$poss]</a></div>";
-                    break;
-            }
-        }
-        echo "<item9></div>";
-        echo "</div>";
-    }
-    
+echo "<div class='item'></div>";
+
+echo "<div class='item'>";
+if (in_array('N', $directionarr)) {
+    $i = array_search('N', $directionarr);
+    echo "<a href='index.php?position={$possibilités[$i]}&key=$key'>N</a>";
+}
+echo "</div>";
+
+echo "<div class='item'></div>";
+
+echo "<div class='item'>";
+if (in_array('O', $directionarr)) {
+    $i = array_search('O', $directionarr);
+    echo "<a href='index.php?position={$possibilités[$i]}&key=$key'>O</a>";
+}
+echo "</div>";
+
+echo "<div class='item'></div>";
+
+echo "<div class='item'>";
+if (in_array('E', $directionarr)) {
+    $i = array_search('E', $directionarr);
+    echo "<a href='index.php?position={$possibilités[$i]}&key=$key'>E</a>";
+}
+echo "</div>";
+
+echo "<div class='item'></div>";
+
+echo "<div class='item'>";
+if (in_array('S', $directionarr)) {
+    $i = array_search('S', $directionarr);
+    echo "<a href='index.php?position={$possibilités[$i]}&key=$key'>S</a>";
+}
+echo "</div>";
+
+echo "<div class='item'></div>";
+
+echo "</div>";
 ?>

@@ -27,6 +27,7 @@
         if(in_array($_GET['position'],$cles))
         {
             $key=1;
+            $_SESSION['score'] += 10;
         } 
     }
 ?>

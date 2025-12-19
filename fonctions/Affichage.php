@@ -9,6 +9,12 @@
         echo "<body>\n";
         echo "<br>";
         echo "<a href='index.php?position=$depart'>RESET</a>";
+        echo "<br>";
+        echo "<br>";
+        echo "<p>O:Deplacement vers l'Ouest</p>";
+        echo "<p>N:Deplacement vers le Nord</p>";
+        echo "<p>E:Deplacement vers l'Est</p>";
+        echo "<p>S:Deplacement vers le Sud</p>";
         echo "</body>\n";
 
     echo "</html>\n";
